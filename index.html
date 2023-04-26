@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" type="text.css" href="./assets/style.css">
+</head>
+<body>
+    <h1>Coding Quiz</h1>
+    <div id="quiz-container">
+      <div id="question-container">
+        <p id="question"></p>
+        <div id="answer-buttons"></div>
+      </div>
+      <div id="controls-container">
+        <button id="start-btn">Start Quiz</button>
+        <button id="submit-btn">Submit</button>
+      </div>
+    </div>
+    <div id="result-container">
+      <h2>Results</h2>
+      <p>Your score: <span id="score"></span></p>
+      <form id="highscore-form">
+        <label for="initials">Enter your initials:</label>
+        <input type="text" id="initials" name="initials" required>
+        <button type="submit" id="save-btn">Save</button>
+      </form>
+      <button id="restart-btn">Restart Quiz</button>
+      <button id="view-highscores-btn">View High Scores</button>
+    </div>
+    <div id="highscores-container">
+      <h2>High Scores</h2>
+      <ul id="highscores-list"></ul>
+      <button id="clear-highscores-btn">Clear High Scores</button>
+      <button id="back-btn">Back to Quiz</button>
+    </div> 
+<script src="./assets/script.js"></script>   
+</body>
+</html>
