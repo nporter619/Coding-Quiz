@@ -34,7 +34,7 @@ const questions = [
         question: 'What does the function clearInterval do?',
         answers: {
             A: 'Sets a delay for functions being used again and again',
-            B: 'Stops the timer so it does not keep running',
+            B: 'Stop the event of the recurring calling of a function',
             C: 'Stops all functions in JS',
             D: 'Deletes your past function'
         },
