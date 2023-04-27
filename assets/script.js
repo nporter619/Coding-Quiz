@@ -6,7 +6,7 @@ const questions = [
             A: 'Aplication Programming Interfaces',
             B: 'American Petroleum Institute',
             C: 'Active Pharmaceutical Ingredient',
-            D: "Academic Performance Index"
+            D: 'Academic Performance Index'
         },
         correct: 'A'
     },
@@ -19,7 +19,38 @@ const questions = [
             D: 'Dignity Office Manifest'
         },
         correct: 'C'
-    }
+    },
+    {
+        question: 'What is the tool used to inspect a live web browser',
+        answers: {
+            A: 'Google Slides',
+            B: 'Bootstrap',
+            C: 'Shift+4',
+            D: 'Dev Tools'
+        },
+        correct: 'D'
+    },
+    {
+        question: 'What does the function clearInterval do?',
+        answers: {
+            A: 'Sets a delay for functions being used again and again',
+            B: 'Stops the timer so it does not keep running',
+            C: 'Stops all functions in JS',
+            D: 'Deletes your past function'
+        },
+        correct: 'B'
+    },
+    {
+        question: 'What does keyup mean?',
+        answers: {
+            A: 'Scrolls to function above you',
+            B: 'Automatically goes to the top of the page',
+            C: 'An event when a key is released',
+            D: 'An event when a key is pressed down'
+        },
+        correct: 'C'
+    },
+    
 ];
 
 const questionContainer = document.getElementById('question-container');
@@ -44,3 +75,32 @@ startBtn.addEventListener('click', startQuiz);
 
 // Show the high scores initially
 displayHighScores();
+
+function startQuiz() {
+    // Reset 
+    timeRemaining = 30;
+    currentQuestionIndex = 0;
+
+    startBtn.classList.add('hide');
+    timerEl.textContent = timeRemaining;
+    displayQuestion();
+
+    // You must use a variable for the timer so that you can cancel it
+    // otherwise it will continue to run.
+    // This will call the countDown function every 1000 milliseconds (every 1 second)
+    timerInterval = setInterval(countDown, 1000);
+}
+
+function countDown() {
+    // If the timeRemaining is 0, stop the quiz!
+    if (timeRemaining <= 0) {
+        endQuiz();
+        return;
+    }
+
+    // Decrement the timeRemaining;
+    timeRemaining--;
+
+    // Update the element to show the updated timeRemaining
+    timerEl.textContent = timeRemaining;
+}
