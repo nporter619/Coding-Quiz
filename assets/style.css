@@ -1,61 +1,25 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
   }
   
-  h1, h2 {
-    margin-top: 0;
+  #quiz {
+    display: inline-block;
   }
   
-  #quiz-container, #result-container, #highscores-container {
-    display: none;
-    margin: 20px;
-  }
-  
-  #question-container {
-    margin-bottom: 20px;
-  }
-  
-  #answer-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  #controls-container, #result-container, #highscores-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  #highscores-list {
-    padding: 0;
-  }
-  
-  #highscores-list li {
-    list-style: none;
-    margin-bottom: 10px;
-  }
-  
-  #highscores-list li span {
+  #timer {
+    font-size: 1.5em;
     font-weight: bold;
-  }
-  
-  input[type="text"] {
-    margin-right: 10px;
+    color: red;
+    margin: 1em;
   }
   
   button {
-    margin-top: 10px;
+    padding: 0.5em;
+    font-size: 1em;
   }
   
-  .correct {
-    background-color: green;
-  }
-  
-  .incorrect {
-    background-color: red;
+  .high-score {
+    font-weight: bold;
   }
   
