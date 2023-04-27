@@ -26,3 +26,21 @@ const questionContainer = document.getElementById('question-container');
 const timerEl = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const highScoreList = document.getElementById('high-score-list');
+
+// The clock
+let timeRemaining = 30;
+
+// Used to get the current question from the questions array
+let currentQuestionIndex = 0;
+
+// Stores all the current and stored high scores
+let highScores = [];
+
+// Required to clear the interval so it doesn't continually run
+let timerInterval = null;
+
+// Add the click handler event to the start button
+startBtn.addEventListener('click', startQuiz);
+
+// Show the high scores initially
+displayHighScores();
