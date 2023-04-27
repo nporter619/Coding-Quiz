@@ -104,3 +104,53 @@ function countDown() {
     // Update the element to show the updated timeRemaining
     timerEl.textContent = timeRemaining;
 }
+
+function displayQuestion() {
+    // Gets the question from the currentQuestionIndex
+    const question = questions[currentQuestionIndex];
+   
+    questionContainer.innerHTML = '<h2>' + question.question + '</h2>';
+    // This will iterate of all the keys in the answers
+    // to display each button
+    for (let key in question.answers) {
+        questionContainer.innerHTML += '<button onclick="answerQuestion(\'' + key + '\')">' + key + ': ' + question.answers[key] + '</button>';
+    }
+}
+
+
+function answerQuestion(answer) {
+    // If answered incorrectly...
+    if (answer !== questions[currentQuestionIndex].correct) {
+        timeRemaining -= 5;
+        timerEl.textContent = timeRemaining;
+    }
+
+    // Increment the index to grab the next question
+    currentQuestionIndex++;
+
+    // If there are no more questions to show...
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function endQuiz() {
+    questionContainer.innerHTML = '<h2>Quiz Over!</h2>';
+
+    // Clear the timer variable
+    clearInterval(timerInterval);
+
+    // Save the new score and display all the high scores
+    saveHighScore(timeRemaining);
+
+    // Show the high scores
+    displayHighScores();
+
+    // Show the Start Quiz button
+    startBtn.classList.remove('hide');
+}
+
+function saveHighScore
+function displayHighScores
