@@ -8,4 +8,4 @@ License: N/A
 
 Link: https://nporter619.github.io/Coding-Quiz/
 
-Screenshot:
+Screenshot:![Alt text](assets/images/nporter619.github.io_Coding-Quiz_.png)
