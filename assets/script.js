@@ -85,8 +85,6 @@ function startQuiz() {
     timerEl.textContent = timeRemaining;
     displayQuestion();
 
-    // You must use a variable for the timer so that you can cancel it
-    // otherwise it will continue to run.
     // This will call the countDown function every 1000 milliseconds (every 1 second)
     timerInterval = setInterval(countDown, 1000);
 }
@@ -143,7 +141,8 @@ function endQuiz() {
     clearInterval(timerInterval);
 
     // Save the new score and display all the high scores
-    saveHighScore(timeRemaining);
+    const userInitials = prompt("Enter your initials:");
+    saveHighScore(timeRemaining, userInitials);
 
     // Show the high scores
     displayHighScores();
@@ -152,5 +151,16 @@ function endQuiz() {
     startBtn.classList.remove('hide');
 }
 
-function saveHighScore
-function displayHighScores
+function saveHighScore(score, initials) {
+    // Add the score to the array of scores (push adds a new score to the end of the array)
+    highScores.push({ score, initials });
+    highScores.sort((a, b) => b.score - a.score);
+    // Save the highScores in localStorage so we can access it later
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+}
+
+function displayHighScores() {
+    
+    highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    highScoreList.innerHTML = highScores.map((entry, index) => `<li class="${index === 0 ? 'high-score' : ''}">${entry.initials}: ${entry.score}</li>`).join('');
+}
